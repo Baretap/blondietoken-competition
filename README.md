@@ -1,1 +1,0 @@
-# blondietoken-competition
