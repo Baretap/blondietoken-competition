@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlondieToken Neon Metropolis</title>
+    <title>Cosmic Pulse – BlondieToken</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cyber-bg"></div>
-    <div class="container">
-        <h1 class="neon-title">BlondieToken Neon Metropolis</h1>
-        <p class="neon-subtitle">Enter the Future – Win up to 5,000€!</p>
-        
-        <div id="auth" class="auth-card">
-            <div class="card-inner">
-                <h2 class="neon-header">Register</h2>
-                <input type="text" id="reg-name" placeholder="Name" class="neon-input">
-                <input type="email" id="reg-email" placeholder="Email" class="neon-input">
-                <input type="password" id="reg-password" placeholder="Password" class="neon-input">
-                <button onclick="register()" class="neon-btn">Register</button>
+    <div class="cosmic-wave"></div>
+    <div class="pulse-portal">
+        <h1 class="cosmic-title">Cosmic Pulse Portal</h1>
+        <p class="cosmic-subtitle">Step into the Void – Win 5,000€ in Blondie Tokens</p>
 
-                <h2 class="neon-header">Login</h2>
-                <input type="email" id="login-email" placeholder="Email" class="neon-input">
-                <input type="password" id="login-password" placeholder="Password" class="neon-input">
-                <button onclick="login()" class="neon-btn">Login</button>
+        <div id="auth" class="pulse-card">
+            <div class="card-core">
+                <h2 class="pulse-header">Enter the Cosmos</h2>
+                <input type="text" id="reg-name" placeholder="Name" class="pulse-input">
+                <input type="email" id="reg-email" placeholder="Email" class="pulse-input">
+                <input type="password" id="reg-password" placeholder="Password" class="pulse-input">
+                <button onclick="register()" class="pulse-btn">Register</button>
+
+                <h2 class="pulse-header">Access the Grid</h2>
+                <input type="email" id="login-email" placeholder="Email" class="pulse-input">
+                <input type="password" id="login-password" placeholder="Password" class="pulse-input">
+                <button onclick="login()" class="pulse-btn">Login</button>
             </div>
         </div>
 
-        <div id="dashboard" class="dashboard-card" style="display: none;">
-            <div class="card-inner">
-                <h2 class="neon-header">Welcome, <span id="user-name"></span>!</h2>
-                <p class="neon-text">Referral Code: <span id="ref-code"></span></p>
-                <p class="neon-text">Referrals: <span id="ref-count"></span></p>
-                <p class="neon-text">Points: <span id="points"></span></p>
-                <button onclick="copyRefCode()" class="neon-btn">Copy Referral Link</button>
-                <button onclick="logout()" class="neon-btn">Logout</button>
-                <h3 class="neon-header">Leaderboard</h3>
-                <div class="holo-table">
-                    <table id="leaderboard"></table>
+        <div id="dashboard" class="pulse-card" style="display: none;">
+            <div class="card-core">
+                <h2 class="pulse-header">Greetings, <span id="user-name"></span></h2>
+                <p class="pulse-text">Code: <span id="ref-code"></span></p>
+                <p class="pulse-text">Allies: <span id="ref-count"></span></p>
+                <p class="pulse-text">Energy: <span id="points"></span></p>
+                <button onclick="copyRefCode()" class="pulse-btn">Share Portal Link</button>
+                <button onclick="logout()" class="pulse-btn">Exit Grid</button>
+                <h3 class="pulse-header">Cosmic Rankings</h3>
+                <div class="starfield">
+                    <table id="leaderboard" class="pulse-table"></table>
                 </div>
             </div>
         </div>
