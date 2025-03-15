@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlondieToken Referral Competition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BlondieToken Referral Competition</h1>
+        <p>Win up to 5,000€ in Blondie Tokens!</p>
+        
+        <div id="auth">
+            <h2>Register</h2>
+            <input type="text" id="reg-name" placeholder="Name">
+            <input type="email" id="reg-email" placeholder="Email">
+            <input type="password" id="reg-password" placeholder="Password">
+            <button onclick="register()">Register</button>
+
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div id="dashboard" style="display: none;">
+            <h2>Welcome, <span id="user-name"></span>!</h2>
+            <p>Referral Code: <span id="ref-code"></span></p>
+            <p>Referrals: <span id="ref-count"></span></p>
+            <p>Points: <span id="points"></span></p>
+            <button onclick="copyRefCode()">Copy Referral Link</button>
+            <button onclick="logout()">Logout</button>
+            <h3>Leaderboard</h3>
+            <table id="leaderboard"></table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
