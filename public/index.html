@@ -3,44 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic Pulse – BlondieToken</title>
+    <title>BlondieToken Referral Contest</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="cosmic-wave"></div>
-    <div class="pulse-portal">
-        <h1 class="cosmic-title">Cosmic Pulse Portal</h1>
-        <p class="cosmic-subtitle">Step into the Void – Win 5,000€ in Blondie Tokens</p>
+    <div class="neon-bg"></div>
+    <div class="container">
+        <h1 class="neon-title">BLONDIE TOKEN</h1>
+        <p class="neon-subtitle">Join the ultimate referral contest and win €10,000!</p>
 
-        <div id="auth" class="pulse-card">
-            <div class="card-core">
-                <h2 class="pulse-header">Enter the Cosmos</h2>
-                <input type="text" id="reg-name" placeholder="Name" class="pulse-input">
-                <input type="email" id="reg-email" placeholder="Email" class="pulse-input">
-                <input type="password" id="reg-password" placeholder="Password" class="pulse-input">
-                <button onclick="register()" class="pulse-btn">Register</button>
+        <div id="auth" class="neon-card">
+            <h2 class="neon-header">REGISTER NOW</h2>
+            <input type="text" id="reg-name" placeholder="Name" class="neon-input">
+            <input type="email" id="reg-email" placeholder="Email" class="neon-input">
+            <input type="password" id="reg-password" placeholder="Password" class="neon-input">
+            <button onclick="register()" class="neon-btn">REGISTER</button>
 
-                <h2 class="pulse-header">Access the Grid</h2>
-                <input type="email" id="login-email" placeholder="Email" class="pulse-input">
-                <input type="password" id="login-password" placeholder="Password" class="pulse-input">
-                <button onclick="login()" class="pulse-btn">Login</button>
-            </div>
+            <h2 class="neon-header">ACCESS GRID</h2>
+            <input type="email" id="login-email" placeholder="Email" class="neon-input">
+            <input type="password" id="login-password" placeholder="Password" class="neon-input">
+            <button onclick="login()" class="neon-btn">LOGIN</button>
         </div>
 
-        <div id="dashboard" class="pulse-card" style="display: none;">
-            <div class="card-core">
-                <h2 class="pulse-header">Greetings, <span id="user-name"></span></h2>
-                <p class="pulse-text">Code: <span id="ref-code"></span></p>
-                <p class="pulse-text">Allies: <span id="ref-count"></span></p>
-                <p class="pulse-text">Energy: <span id="points"></span></p>
-                <button onclick="copyRefCode()" class="pulse-btn">Share Portal Link</button>
-                <button onclick="logout()" class="pulse-btn">Exit Grid</button>
-                <h3 class="pulse-header">Cosmic Rankings</h3>
-                <div class="starfield">
-                    <table id="leaderboard" class="pulse-table"></table>
-                </div>
-            </div>
+        <div id="dashboard" class="neon-card" style="display: none;">
+            <h2 class="neon-header">WELCOME BACK!</h2>
+            <p class="neon-text">Welcome aboard, <span id="user-name"></span>! Invite friends to earn more tokens and climb the leaderboard!</p>
+            <p class="neon-text">Code: <span id="ref-code"></span></p>
+            <p class="neon-text">Allies: <span id="ref-count"></span></p>
+            <p class="neon-text">Energy: <span id="points"></span></p>
+            <button onclick="copyRefCode()" class="neon-btn">INVITE MORE, WIN MORE</button>
+            <button onclick="logout()" class="neon-btn">EXIT GRID</button>
+
+            <h3 class="neon-header">LEADERBOARD</h3>
+            <table id="leaderboard" class="neon-table"></table>
         </div>
     </div>
     <script src="script.js"></script>
