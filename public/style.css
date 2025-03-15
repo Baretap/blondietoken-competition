@@ -1,158 +1,148 @@
-/* Taustan perusasetukset */
 body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+margin: 0;
+padding: 0;
+background: #000;
+color: #fff;
+font-family: 'Orbitron', sans-serif;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
 }
 
-/* Dynaaminen neon-gradientti tausta */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ff00);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    z-index: -2;
+content: '';
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ff00);
+background-size: 400% 400%;
+animation: gradientShift 15s ease infinite;
+z-index: -2;
 }
 
-/* Hiukkasanimaatio taustalle */
 .background-particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(0, 255, 255, 0.5)"/></svg>') repeat;
-    animation: particleFloat 20s linear infinite;
-    z-index: -1;
-    opacity: 0.3;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(0, 255, 255, 0.5)"/></svg>') repeat;
+animation: particleFloat 20s linear infinite;
+z-index: -1;
+opacity: 0.3;
 }
 
-/* Kontainerin tyyli */
 .container {
-    text-align: center;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 20px;
-    border: 2px solid #00ff00;
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    z-index: 1;
+text-align: center;
+padding: 30px;
+background: rgba(0, 0, 0, 0.6);
+border-radius: 20px;
+border: 2px solid #00ff00;
+box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+max-width: 600px;
+width: 90%;
+position: relative;
+z-index: 1 ;
 }
 
-/* Otsikot */
 h1 {
-    color: #00ffff;
-    text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
-    font-size: 3em;
-    margin-bottom: 15px;
-    animation: pulse 2s infinite;
+color: #00ffff;
+text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+font-size: 3em;
+margin-bottom: 15px;
+animation: pulse 2s infinite;
 }
 
 .neon-header {
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff;
-    font-size: 1.8em;
-    margin: 20px 0;
+color: #ff00ff;
+text-shadow: 0 0 10px #ff00ff;
+font-size: 1.8em;
+margin: 20px 0;
 }
 
-/* Tekstit */
 .neon-text {
-    color: #00ff00;
-    text-shadow: 0 0 8px #00ff00;
-    font-size: 1.2em;
+color: #00ff00;
+text-shadow: 0 0 8px #00ff00;
+font-size: 1.2em;
 }
 
-/* Syöttökentät */
 .neon-input {
-    display: block;
-    width: 85%;
-    margin: 15px auto;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid #ffff00;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1.1em;
-    box-shadow: 0 0 10px #ffff00;
-    transition: box-shadow 0.3s;
+display: block;
+width: 85%;
+margin: 15px auto;
+padding: 12px;
+background: rgba(255, 255, 255, 0.1);
+border: 2px solid #ffff00;
+border-radius: 8px;
+color: #fff;
+font-size: 1.1em;
+box-shadow: 0 0 10px #ffff00;
+transition: box-shadow 0.3s;
 }
 
 .neon-input:focus {
-    outline: none;
-    box-shadow: 0 0 20px #ffff00;
+outline: none;
+box-shadow: 0 0 20px #ffff00;
 }
 
-/* Painikkeet */
 .neon-btn {
-    background: linear-gradient(90deg, #ff00ff, #00ffff);
-    border: 2px solid #00ff00;
-    padding: 12px 25px;
-    margin: 10px;
-    border-radius: 30px;
-    color: #000;
-    font-weight: bold;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-shadow: 0 0 5px #fff;
+background: linear-gradient(90deg, #ff00ff, #00ffff);
+border: 2px solid #00ff00;
+padding: 12px 25px;
+margin: 10px;
+border-radius: 30px;
+color: #000;
+font-weight: bold;
+font-size: 1.1em;
+cursor: pointer;
+transition: transform 0.3s, box-shadow 0.3s;
+text-shadow: 0 0 5px #fff;
 }
 
 .neon-btn:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 25px #00ffff, 0 0 50px #ff00ff;
+transform: scale(1.15);
+box-shadow: 0 0 25px #00ffff, 0 0 50px #ff00ff;
 }
 
-/* Taulukko */
 .neon-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 25px;
-    border: 2px solid #00ff00;
-    box-shadow: 0 0 15px #00ff00;
+width: 100%;
+border-collapse: collapse;
+margin-top: 25px;
+border: 2px solid #00ff00;
+box-shadow: 0 0 15px #00ff00;
 }
 
 .neon-table th, .neon-table td {
-    padding: 12px;
-    border: 1px solid #ffff00;
-    color: #fff;
-    text-shadow: 0 0 5px #fff;
+padding: 12px;
+border: 1px solid #ffff00;
+color: #fff;
+text-shadow: 0 0 5px #fff;
 }
 
 .neon-table th {
-    background: linear-gradient(45deg, #00ff00, #ffff00);
-    color: #000;
-    font-weight: bold;
+background: linear-gradient(45deg, #00ff00, #ffff00);
+color: #000;
+font-weight: bold;
 }
 
-/* Animaatiot */
 @keyframes gradientShift {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+0% { background-position: 0% 0%; }
+50% { background-position: 100% 100%; }
+100% { background-position: 0% 0%; }
 }
 
 @keyframes particleFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
+0% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
+100% { transform: translateY(0); }
 }
 
 @keyframes pulse {
-    0% { text-shadow: 0 0 15px #00ffff; }
-    50% { text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
-    100% { text-shadow: 0 0 15px #00ffff; }
+0% { text-shadow: 0 0 15px #00ffff; }
+50% { text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+100% { text-shadow: 0 0 15px #00ffff; }
 }
