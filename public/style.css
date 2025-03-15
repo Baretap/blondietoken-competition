@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: #000000; /* Musta pohja */
-    color: #FFFFFF; /* Valkoinen teksti */
+    color: #FF0000; /* Punainen teksti */
     font-family: 'Orbitron', sans-serif;
     overflow-x: hidden;
     overflow-y: auto; /* Vieritys sallittu */
@@ -28,7 +28,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(255, 105, 180, 0.3), rgba(0, 255, 255, 0.3)); /* Vaaleanpunainen ja neon sininen */
+    background: linear-gradient(45deg, rgba(255, 105, 180, 0.3), rgba(75, 0, 130, 0.3)); /* Vaaleanpunainen -> tumma lila */
     filter: blur(50px);
     animation: ripple 12s ease infinite;
 }
@@ -44,8 +44,8 @@ body {
 
 /* Otsikot */
 .cosmic-title {
-    color: #00FFFF; /* Neon sininen */
-    text-shadow: 0 0 15px #00FFFF, 0 0 30px #FF69B4, 0 0 50px #FF0000;
+    color: #FF69B4; /* Vaaleanpunainen */
+    text-shadow: 0 0 15px #FF0000, 0 0 30px #4B0082; /* Punainen ja tumma lila hehku */
     font-size: 3.5em;
     text-align: center;
     animation: glowPulse 3s ease infinite;
@@ -54,7 +54,7 @@ body {
 
 .cosmic-subtitle {
     color: #FF0000; /* Punainen */
-    text-shadow: 0 0 10px #FF0000;
+    text-shadow: 0 0 10px #FF69B4; /* Vaaleanpunainen hehku */
     font-size: 1.6em;
     text-align: center;
     margin-bottom: 50px;
@@ -68,7 +68,7 @@ body {
     border-radius: 50% 20% 50% 20% / 60% 40% 60% 40%; /* Orgaaninen muoto */
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 0 0 20px #FF69B4, 0 0 40px #00FFFF, inset 0 0 15px #FF0000;
+    box-shadow: 0 0 20px #FF69B4, inset 0 0 15px #FF0000; /* Vaaleanpunainen ja punainen hehku */
     animation: floatCard 6s ease-in-out infinite;
     transform-style: preserve-3d;
 }
@@ -77,13 +77,13 @@ body {
     padding: 20px;
     background: rgba(0, 0, 0, 0.7); /* Musta */
     border-radius: 20px;
-    box-shadow: inset 0 0 10px #FFFFFF;
+    box-shadow: inset 0 0 10px #FF69B4; /* Vaaleanpunainen sisähehku */
 }
 
 /* Väliotsikot */
 .pulse-header {
-    color: #FFFFFF; /* Valkoinen */
-    text-shadow: 0 0 12px #FF69B4, 0 0 25px #00FFFF;
+    color: #FF69B4; /* Vaaleanpunainen */
+    text-shadow: 0 0 12px #FF0000, 0 0 25px #4B0082; /* Punainen ja tumma lila */
     font-size: 2em;
     margin: 25px 0;
     animation: textPulse 2s ease infinite;
@@ -92,7 +92,7 @@ body {
 /* Tekstit */
 .pulse-text {
     color: #FF0000; /* Punainen */
-    text-shadow: 0 0 8px #FF0000;
+    text-shadow: 0 0 8px #FF69B4; /* Vaaleanpunainen hehku */
     font-size: 1.3em;
     margin: 15px 0;
 }
@@ -103,25 +103,25 @@ body {
     width: 90%;
     margin: 20px auto;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.1); /* Valkoinen, läpinäkyvä */
+    background: rgba(0, 0, 0, 0.5); /* Musta */
     border: 2px solid #FF69B4; /* Vaaleanpunainen */
     border-radius: 20px;
-    color: #00FFFF; /* Neon sininen */
+    color: #FF0000; /* Punainen */
     font-size: 1.2em;
     box-shadow: 0 0 15px #FF69B4;
     transition: all 0.4s ease;
 }
 
 .pulse-input:focus {
-    border-color: #FFFFFF; /* Valkoinen */
-    box-shadow: 0 0 25px #00FFFF;
+    border-color: #FF0000; /* Punainen */
+    box-shadow: 0 0 25px #FF69B4; /* Vaaleanpunainen hehku */
     transform: scale(1.05);
     outline: none;
 }
 
 /* Painikkeet */
 .pulse-btn {
-    background: linear-gradient(135deg, #FF69B4, #00FFFF); /* Vaaleanpunainen -> Neon sininen */
+    background: linear-gradient(135deg, #FF69B4, #4B0082); /* Vaaleanpunainen -> Tumma lila */
     border: 2px solid #FF0000; /* Punainen */
     padding: 15px 35px;
     margin: 15px;
@@ -137,7 +137,7 @@ body {
 
 .pulse-btn:hover {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 30px #00FFFF, 0 0 50px #FF69B4;
+    box-shadow: 0 0 30px #FF0000, 0 0 50px #FF69B4; /* Punainen ja vaaleanpunainen */
 }
 
 /* Tähtikartta-pistetaulukko */
@@ -146,7 +146,7 @@ body {
     padding: 20px;
     background: rgba(0, 0, 0, 0.5); /* Musta */
     border-radius: 20px;
-    box-shadow: 0 0 20px #00FFFF;
+    box-shadow: 0 0 20px #FF69B4; /* Vaaleanpunainen */
 }
 
 .pulse-table {
@@ -157,8 +157,8 @@ body {
 
 .pulse-table th, .pulse-table td {
     padding: 15px;
-    color: #FFFFFF; /* Valkoinen */
-    text-shadow: 0 0 10px #00FFFF;
+    color: #FF0000; /* Punainen */
+    text-shadow: 0 0 10px #FF69B4; /* Vaaleanpunainen hehku */
     background: rgba(75, 0, 130, 0.7); /* Tumma lila */
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -170,7 +170,7 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 0 15px #FF0000;
+    box-shadow: 0 0 15px #FF0000; /* Punainen hehku */
 }
 
 .pulse-table tr {
@@ -179,7 +179,7 @@ body {
 
 .pulse-table tr:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #00FFFF;
+    box-shadow: 0 0 25px #FF69B4; /* Vaaleanpunainen */
     background: rgba(255, 105, 180, 0.4); /* Vaaleanpunainen hover */
 }
 
@@ -224,8 +224,8 @@ body {
 }
 
 @keyframes glowPulse {
-    0%, 100% { text-shadow: 0 0 15px #00FFFF, 0 0 30px #FF69B4; }
-    50% { text-shadow: 0 0 25px #00FFFF, 0 0 50px #FF69B4, 0 0 70px #FF0000; }
+    0%, 100% { text-shadow: 0 0 15px #FF0000, 0 0 30px #FF69B4; }
+    50% { text-shadow: 0 0 25px #FF0000, 0 0 50px #FF69B4; }
 }
 
 @keyframes floatCard {
@@ -234,13 +234,13 @@ body {
 }
 
 @keyframes textPulse {
-    0%, 100% { text-shadow: 0 0 12px #FF69B4; }
-    50% { text-shadow: 0 0 20px #FF69B4, 0 0 35px #00FFFF; }
+    0%, 100% { text-shadow: 0 0 12px #FF0000; }
+    50% { text-shadow: 0 0 20px #FF0000, 0 0 35px #FF69B4; }
 }
 
 @keyframes buttonPulse {
     0%, 100% { box-shadow: 0 0 20px #FF69B4; }
-    50% { box-shadow: 0 0 30px #00FFFF; }
+    50% { box-shadow: 0 0 30px #FF0000; }
 }
 
 @keyframes orbit {
