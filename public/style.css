@@ -1,4 +1,4 @@
- /* Perusasetukset */
+/* Perusasetukset */
 body {
     margin: 0;
     padding: 0;
@@ -52,7 +52,7 @@ body {
 
 /* Kortit */
 .neon-card {
-    background: rgba(75, 0, 130, 0.5); /* Tumma lila */
+    background: #000000; /* Musta tausta, kuten kuvassa */
     border: 2px solid #FF0000; /* Punainen */
     border-radius: 20px;
     padding: 30px;
@@ -86,7 +86,7 @@ body {
     width: 90%;
     margin: 15px auto;
     padding: 12px;
-    background: rgba(0, 0, 0, 0.6); /* Musta */
+    background: rgba(75, 0, 130, 0.3); /* Tumma lila, läpinäkyvä */
     border: 2px solid #FF69B4; /* Vaaleanpunainen */
     border-radius: 10px;
     color: #FF0000; /* Punainen */
