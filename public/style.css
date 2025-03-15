@@ -1,176 +1,199 @@
 /* Perusasetukset */
 body {
-    margin: 0;
-    padding: 0;
-    background: #4B0082; /* Tumma lila */
-    color: #FFFFFF; /* Valkoinen */
-    font-family: 'Orbitron', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+ margin: 0;
+ padding: 0;
+ background: #4B0082; /* Tumma lila */
+ color: #FFFFFF; /* Valkoinen */
+ font-family: 'Orbitron', sans-serif;
+ overflow-x: hidden; /* Estä vaakavieritys */
+ overflow-y: auto; /* Salli pyst ysuuntainen vieritys */
 }
 
 /* Animoitu gradientti tausta */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #4B0082, #FF69B4, #FF0000, #00FFFF); /* Tumma lila, vaaleanpunainen, punainen, neon sininen */
-    background-size: 400% 400%;
-    animation: gradientShift 12s ease infinite;
-    z-index: -2;
-    opacity: 0.8;
+ content: '';
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(45deg, #4B0082, #FF69B4, #FF0000, #00FFFF); /* Tumma lila, vaaleanpunainen, punainen, neon sininen */
+ background-size: 400% 400%;
+ animation: gradientShift 12s ease infinite;
+ z-index: -2;
+ opacity: 0.8;
 }
 
 /* Hiukkasanimaatio */
 .background-particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255, 105, 180, 0.5)"/></svg>') repeat; /* Vaaleanpunainen hiukkanen */
-    animation: particleFloat 18s linear infinite;
-    z-index: -1;
-    opacity: 0.4;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255, 105, 180, 0.5)"/></svg>') repeat; /* Vaaleanpunainen hiukkanen */
+ animation: particleFloat 18s linear infinite;
+ z-index: -1;
+ opacity: 0.4;
 }
 
 /* Kontaineri */
 .container {
-    text-align: center;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.7); /* Musta, läpinäkyvä */
-    border-radius: 20px;
-    border: 2px solid #00FFFF; /* Neon sininen */
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* Neon sininen hehku */
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    z-index: 1;
+ text-align: center;
+ padding: 30px;
+ background: rgba(0, 0, 0, 0.7); /* Musta, läpinäkyvä */
+ border-radius: 20px;
+ border: 2px solid #00FFFF; /* Neon sininen */
+ box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); /* Neon sininen hehku */
+ max-width: 600px;
+ width: 90%;
+ margin: 20px auto; /* Lisää marginaali ylhäältä ja alhaalta */
+ position: relative;
+ z-index: 1;
 }
 
 /* Otsikot */
 h1 {
-    color: #00FFFF; /* Neon sininen */
-    text-shadow: 0 0 15px #00FFFF, 0 0 30px #00FFFF;
-    font-size: 3em;
-    margin-bottom: 15px;
-    animation: pulse 2s infinite;
+ color: #00FFFF; /* Neon sininen */
+ text-shadow: 0 0 15px #00FFFF, 0 0 30px #00FFFF;
+ font-size: 2.5em; /* Pienempi mobiilissa */
+ margin-bottom: 15px;
+ animation: pulse 2s infinite;
 }
 
 .neon-header {
-    color: #FF69B4; /* Vaaleanpunainen */
-    text-shadow: 0 0 10px #FF69B4;
-    font-size: 1.8em;
-    margin: 20px 0;
+ color: #FF69B4; /* Vaaleanpunainen */
+ text-shadow: 0 0 10px #FF69B4;
+ font-size: 1.6em; /* Pienempi mobiilissa */
+ margin: 20px 0;
 }
 
 /* Tekstit */
 .neon-text {
-    color: #FF0000; /* Punainen */
-    text-shadow: 0 0 8px #FF0000;
-    font-size: 1.2em;
+ color: #FF0000; /* Punainen */
+ text-shadow: 0 0 8px #FF0000;
+ font-size: 1.1em; /* Pienempi mobiilissa */
 }
 
 /* Syöttökentät */
 .neon-input {
-    display: block;
-    width: 85%;
-    margin: 15px auto;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.1); /* Valkoinen, läpinäkyvä */
-    border: 2px solid #FFFFFF; /* Valkoinen */
-    border-radius: 8px;
-    color: #FF69B4; /* Vaaleanpunainen */
-    font-size: 1.1em;
-    box-shadow: 0 0 10px #FFFFFF;
-    transition: box-shadow 0.3s, border-color 0.3s;
+ display: block;
+ width: 85%;
+ margin: 15px auto;
+ padding: 12px;
+ background: rgba(255, 255, 255, 0.1); /* Valkoinen, läpinäkyvä */
+ border: 2px solid #FFFFFF; /* Valkoinen */
+ border-radius: 8px ;
+ color: #FF69B4; /* Vaaleanpunainen */
+ font-size: 1em;
+ box-shadow: 0 0 10px #FFFFFF;
+ transition: box-shadow 0.3s, border-color 0.3s;
 }
 
 .neon-input:focus {
-    outline: none;
-    border-color: #00FFFF; /* Neon sininen */
-    box-shadow: 0 0 20px #00FFFF;
+ outline: none;
+ border-color: #00FFFF; /* Neon sininen */
+ box-shadow: 0 0 20px #00FFFF;
 }
 
 /* Painikkeet */
 .neon-btn {
-    background: linear-gradient(90deg, #FF69B4, #00FFFF); /* Vaaleanpunainen -> Neon sininen */
-    border: 2px solid #FF0000; /* Punainen */
-    padding: 12px 25px;
-    margin: 10px;
-    border-radius: 30px;
-    color: #000000; /* Musta */
-    font-weight: bold;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-shadow: 0 0 5px #FFFFFF; /* Valkoinen */
+ background: linear-gradient(90deg, #FF69B4, #00FFFF); /* Vaaleanpunainen -> Neon sininen */
+ border: 2px solid #FF0000; /* Punainen */
+ padding: 12px 25px;
+ margin: 10px;
+ border-radius: 30px;
+ color: #000000; /* Musta */
+ font-weight: bold;
+ font-size: 1em;
+ cursor: pointer;
+ transition: transform 0.3s, box-shadow 0.3s;
+ text-shadow: 0 0 5px #FFFFFF; /* Valkoinen */
 }
 
 .neon-btn:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 25px #FF69B4, 0 0 50px #00FFFF; /* Vaaleanpunainen ja neon sininen hehku */
+ transform: scale(1.15);
+ box-shadow: 0 0 25px #FF69B4, 0 0 50px #00FFFF; /* Vaaleanpunainen ja neon sininen hehku */
 }
 
-/* Pistetaulukko (Leaderboard) */
+/* Pistetaulukko */
 .neon-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 25px;
-    background: rgba(75, 0, 130, 0.3); /* Tumma lila, läpinäkyvä */
-    border-radius: 15px;
-    border: 2px solid #00FFFF; /* Neon sininen */
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Neon sininen hehku */
-    overflow: hidden;
+ width: 100%;
+ border-collapse: separate;
+ border-spacing: 0;
+ margin-top: 25px;
+ background: rgba(75, 0, 130, 0.3); /* Tumma lila, läpinäkyvä */
+ border-radius: 15px;
+ border: 2px solid #00FFFF; /* Neon sininen */
+ box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Neon sininen hehku */
+ overflow: hidden;
 }
 
 .neon-table th, .neon-table td {
-    padding: 15px;
-    color: #FFFFFF; /* Valkoinen */
-    text-shadow: 0 0 5px #FFFFFF;
-    border-bottom: 1px solid #FF69B4; /* Vaaleanpunainen */
+ padding: 12px;
+ color: #FFFFFF; /* Valkoinen */
+ text-shadow: 0 0 5px #FFFFFF;
+ border-bottom: 1px solid #FF69B4; /* Vaaleanpunainen */
 }
 
 .neon-table th {
-    background: linear-gradient(45deg, #FF0000, #FF69B4); /* Punainen -> Vaaleanpunainen */
-    color: #000000; /* Musta */
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+ background: linear-gradient(45deg, #FF0000, #FF69B4); /* Punainen -> Vaaleanpunainen */
+ color: #000000; /* Musta */
+ font-weight: bold;
+ text-transform: uppercase;
+ letter-spacing: 1px;
 }
 
 .neon-table tr:last-child td {
-    border-bottom: none;
+ border-bottom: none;
 }
 
 .neon-table tr:hover {
-    background: rgba(255, 105, 180, 0.2); /* Vaaleanpunainen hover */
-    box-shadow: 0 0 10px #FF69B4;
-    transition: background 0.3s;
+ background: rgba(255, 105, 180, 0.2); /* Vaaleanpunainen hover */
+ box-shadow: 0 0 10px #FF69B4;
+ transition: background 0.3s;
+}
+
+/* Responsiivisuus */
+@media (max-width: 600px) {
+ h1 {
+ font-size: 2em;
+ }
+ .neon-header {
+ font-size: 1.4em;
+ }
+ .neon-text {
+ font-size: 1em;
+ }
+ .neon-input {
+ width: 90%;
+ padding: 10px;
+ }
+ .neon-btn {
+ padding: 10px 20px;
+ font-size: 0.9em;
+ }
+ .neon-table th, .neon-table td {
+ padding: 10px;
+ font-size: 0.9em;
+ }
 }
 
 /* Animaatiot */
 @keyframes gradientShift {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+ 0% { background-position: 0% 0%; }
+ 50% { background-position: 100% 100%; }
+ 100% { background-position: 0% 0%; }
 }
 
 @keyframes particleFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
+ 0% { transform: translateY(0); }
+ 50% { transform: translateY(-15px); }
+ 100% { transform: translateY(0); }
 }
 
 @keyframes pulse {
-    0% { text-shadow: 0 0 15px #00FFFF; }
-    50% { text-shadow: 0 0 30px #00FFFF, 0 0 60px #00FFFF; }
-    100% { text-shadow: 0 0 15px #00FFFF; }
+ 0% { text-shadow: 0 0 15px #00FFFF; }
+ 50% { text-shadow: 0 0 30px #00FFFF, 0 0 60px #00FFFF; }
+ 100% { text-shadow: 0 0 15px #00FFFF; }
 }
