@@ -13,8 +13,7 @@
         <div class="menu-icon">☰</div>
         <h1 class="neon-title">BLONDIE TOKEN</h1>
         <div class="nav-options" style="display: none;">
-            <a href="#" onclick="logout()" class="nav-link">Logout</a>
-            <!-- Tulevia sivuja voi lisätä tähän -->
+            <a href="#" onclick="logout()" class="nav-link" id="logout-link" style="display: none;">Logout</a>
         </div>
     </header>
     <div class="container">
@@ -43,25 +42,12 @@
             <button onclick="copyRefCode()" class="neon-btn">INVITE MORE, WIN MORE</button>
             <button onclick="logout()" class="neon-btn">EXIT GRID</button>
 
-            <h3 class="neon-header">LEADERBOARD</h3>
-            <table id="leaderboard" class="neon-table"></table>
+            <div class="leaderboard-box">
+                <h3 class="neon-header">LEADERBOARD</h3>
+                <table id="leaderboard" class="neon-table"></table>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
-    <script>
-        // Hamburger-valikon toiminnallisuus
-        const menuIcon = document.querySelector('.menu-icon');
-        const navOptions = document.querySelector('.nav-options');
-        menuIcon.addEventListener('click', () => {
-            navOptions.style.display = navOptions.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Esimerkkitoiminto uloskirjautumiselle
-        function logout() {
-            document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('auth').style.display = 'block';
-            alert('Logged out successfully!');
-        }
-    </script>
 </body>
 </html>

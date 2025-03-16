@@ -26,16 +26,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px; /* Vähennetty padding vasemmalta ja oikealta */
+    padding: 15px;
     background: #000000; /* Musta tausta */
     border: 2px solid #FF69B4; /* Neon vaaleanpunainen header */
     position: fixed;
-    width: 100%; /* Varmistetaan täysi leveys */
+    width: 100%;
     top: 0;
     z-index: 100;
     box-shadow: 0 0 15px #FF69B4, 0 0 30px #FF0000; /* Vaaleanpunainen ja punainen hehku */
-    box-sizing: border-box; /* Sisällyttää paddingin leveyteen */
-    left: 0; /* Varmistetaan, että ei mene vasemmalta yli */
+    box-sizing: border-box;
+    left: 0;
 }
 
 .menu-icon {
@@ -50,7 +50,7 @@ body {
     flex-direction: column;
     position: absolute;
     top: 100%;
-    right: 15px; /* Vähennetty oikea marginaali */
+    right: 15px;
     background: #000000; /* Musta tausta */
     border: 2px solid #FF69B4; /* Neon vaaleanpunainen */
     border-radius: 10px;
@@ -72,6 +72,13 @@ body {
     color: #FF69B4; /* Vaaleanpunainen */
 }
 
+/* Kontaineri */
+.container {
+    padding: 80px 20px 40px; /* Lisätty yläpadding headerin vuoksi */
+    max-width: 600px; /* Kapeampi kontaineri tasapainoisemman ilmeen vuoksi */
+    margin: 0 auto;
+}
+
 /* Otsikot */
 .neon-title {
     color: #00FFFF; /* Neon sininen */
@@ -88,11 +95,11 @@ body {
 .neon-subtitle {
     color: #00FFFF; /* Neon sininen */
     text-shadow: 0 0 15px #00FFFF, 0 0 30px #FF0000; /* Neon sininen ja punainen hehku */
-    font-size: 2em; /* Isompi */
+    font-size: 2em;
     font-weight: 700; /* Paksu */
     text-align: center;
     text-transform: uppercase;
-    margin: 80px 0 20px; /* Lisätty marginaali headerin vuoksi */
+    margin: 20px 0;
 }
 
 .neon-subtext {
@@ -106,10 +113,10 @@ body {
 /* Kortit */
 .neon-card {
     background: #000000; /* Musta tausta */
-    border: none; /* Poistettu punainen kehys */
+    border: none;
     border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 25px; /* Vähennetty padding tasapainon vuoksi */
+    margin-bottom: 20px; /* Vähennetty marginaali */
     box-shadow: 0 0 20px #4B0082, inset 0 0 10px #FF0000; /* Tumma lila hehku ja punainen sisähehku */
 }
 
@@ -117,28 +124,28 @@ body {
 .neon-header {
     color: #00FFFF; /* Neon sininen */
     text-shadow: 0 0 15px #00FFFF, 0 0 30px #FF0000; /* Neon sininen ja punainen hehku */
-    font-size: 2em;
-    font-weight: 700; /* Paksu */
+    font-size: 1.8em; /* Pienempi koko tasapainon vuoksi */
+    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 25px 0;
+    margin: 20px 0;
 }
 
 /* Tekstit */
 .neon-text {
     color: #FF0000; /* Punainen */
     text-shadow: 0 0 6px #FF69B4; /* Vaaleanpunainen hehku */
-    font-size: 1.2em;
+    font-size: 1.1em; /* Pienempi koko tasapainon vuoksi */
     text-align: center;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 /* Syöttökentät */
 .neon-input {
     display: block;
-    width: 90%;
-    margin: 15px auto;
+    width: 100%; /* Täysi leveys kortin sisällä */
+    margin: 15px 0; /* Keskitetty marginaali */
     padding: 12px;
     background: rgba(75, 0, 130, 0.3); /* Tumma lila, läpinäkyvä */
     border: 2px solid #FF69B4; /* Vaaleanpunainen */
@@ -147,6 +154,7 @@ body {
     font-size: 1.1em;
     box-shadow: 0 0 10px #FF69B4;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .neon-input:focus {
@@ -158,8 +166,8 @@ body {
 /* Painikkeet */
 .neon-btn {
     display: block;
-    width: 80%;
-    margin: 15px auto;
+    width: 100%; /* Täysi leveys kortin sisällä */
+    margin: 15px 0;
     padding: 12px;
     background: linear-gradient(90deg, #FF69B4, #4B0082); /* Vaaleanpunainen -> Tumma lila */
     border: 2px solid #FF0000; /* Punainen */
@@ -179,15 +187,25 @@ body {
     box-shadow: 0 0 20px #FF0000;
 }
 
+/* Leaderboard-laatikko */
+.leaderboard-box {
+    background: #000000; /* Musta tausta */
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 0 20px #4B0082; /* Tumma lila hehku */
+}
+
 /* Pistetaulukko */
 .neon-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .neon-table th, .neon-table td {
-    padding: 12px;
+    padding: 10px;
     color: #FF0000; /* Punainen */
     text-shadow: 0 0 6px #FF69B4; /* Vaaleanpunainen hehku */
     background: rgba(75, 0, 130, 0.7); /* Tumma lila */
@@ -210,6 +228,10 @@ body {
 
 /* Responsiivisuus */
 @media (max-width: 600px) {
+    .container {
+        padding: 70px 15px 30px;
+        max-width: 90%;
+    }
     .neon-title {
         font-size: 1.6em;
     }
@@ -226,11 +248,9 @@ body {
         font-size: 1em;
     }
     .neon-input {
-        width: 95%;
         padding: 10px;
     }
     .neon-btn {
-        width: 90%;
         padding: 10px;
         font-size: 1em;
     }
@@ -247,6 +267,10 @@ body {
     .nav-options {
         right: 10px;
         padding: 10px;
+    }
+    .leaderboard-box {
+        padding: 15px;
+        margin-top: 20px;
     }
 }
 
