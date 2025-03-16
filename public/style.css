@@ -74,9 +74,17 @@ body {
 
 /* Kontaineri */
 .container {
-    padding: 80px 20px 40px;
+    padding: 80px 20px 100px; /* Lisätään padding-bottom ohjauspaneelin vuoksi */
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Osioiden tyyli */
+.section {
+    display: none;
+    width: 100%;
 }
 
 /* Otsikot */
@@ -233,6 +241,24 @@ body {
     box-shadow: 0 0 15px #FF0000;
 }
 
+/* Tehtävälista */
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.task-btn {
+    width: 30%;
+    margin: 0;
+}
+
 /* Progress Bar: Nestemäinen kulta lasiputkessa */
 .neon-progress {
     width: 100%;
@@ -326,10 +352,47 @@ body {
     box-shadow: 0 0 10px #FF69B4;
 }
 
+/* Ohjauspaneeli (footer) */
+.control-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000000; /* Musta tausta */
+    border-top: 2px solid #FF69B4; /* Neon vaaleanpunainen */
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 0 15px #4B0082; /* Tumma lila hehku */
+    z-index: 100;
+}
+
+.control-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    background: linear-gradient(90deg, #FF69B4, #4B0082); /* Vaaleanpunainen -> Tumma lila */
+    border: 2px solid #FF0000; /* Punainen */
+    border-radius: 10px;
+    color: #FFFFFF; /* Valkoinen */
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FF69B4;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: linear-gradient(90deg, #FF0000, #FF69B4); /* Punainen -> Vaaleanpunainen */
+    box-shadow: 0 0 15px #FF0000;
+}
+
 /* Responsiivisuus */
 @media (max-width: 600px) {
     .container {
-        padding: 70px 15px 30px;
+        padding: 70px 15px 90px; /* Lisätään padding-bottom mobiililaitteille */
         max-width: 90%;
     }
     .neon-title {
@@ -380,6 +443,13 @@ body {
     }
     .neon-progress {
         height: 20px;
+    }
+    .control-panel {
+        padding: 5px 0;
+    }
+    .control-btn {
+        padding: 8px;
+        font-size: 0.9em;
     }
 }
 

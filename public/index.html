@@ -17,47 +17,108 @@
         </div>
     </header>
     <div class="container">
-        <p class="neon-subtitle">JOIN THE ULTIMATE REFERRAL CONTEST</p>
-        <p class="neon-subtext">and win €10,000!</p>
+        <!-- Home Section -->
+        <div id="home-section" class="section">
+            <p class="neon-subtitle">JOIN THE ULTIMATE REFERRAL CONTEST</p>
+            <p class="neon-subtext">and win €10,000!</p>
 
-        <div id="auth" class="neon-card">
-            <h2 class="neon-header">REGISTER NOW</h2>
-            <input type="text" id="reg-name" placeholder="Name" class="neon-input">
-            <input type="email" id="reg-email" placeholder="Email" class="neon-input">
-            <input type="password" id="reg-password" placeholder="Password" class="neon-input">
-            <button onclick="register()" class="neon-btn">REGISTER</button>
+            <div id="auth" class="neon-card">
+                <h2 class="neon-header">REGISTER NOW</h2>
+                <input type="text" id="reg-name" placeholder="Name" class="neon-input">
+                <input type="email" id="reg-email" placeholder="Email" class="neon-input">
+                <input type="password" id="reg-password" placeholder="Password" class="neon-input">
+                <button onclick="register()" class="neon-btn">REGISTER</button>
 
-            <h2 class="neon-header">ACCESS GRID</h2>
-            <input type="email" id="login-email" placeholder="Email" class="neon-input">
-            <input type="password" id="login-password" placeholder="Password" class="neon-input">
-            <button onclick="login()" class="neon-btn">LOGIN</button>
+                <h2 class="neon-header">ACCESS GRID</h2>
+                <input type="email" id="login-email" placeholder="Email" class="neon-input">
+                <input type="password" id="login-password" placeholder="Password" class="neon-input">
+                <button onclick="login()" class="neon-btn">LOGIN</button>
+            </div>
+
+            <div id="dashboard" class="neon-card" style="display: none;">
+                <h2 class="neon-header">WELCOME BACK!</h2>
+                <p class="neon-text">Welcome aboard, <span id="user-name"></span>! Invite friends to earn more tokens and climb the leaderboard!</p>
+                <p class="neon-text">Level: <span id="user-level" class="level-text"></span></p>
+                <p class="neon-text">Referrals: <span id="ref-count"></span></p>
+                <p class="neon-text">Points: <span id="points"></span></p>
+                <progress id="progress-bar" value="0" max="5" class="neon-progress"></progress>
+                <p class="neon-text">Next level at <span id="next-level-refs"></span> referrals!</p>
+                <button onclick="updateReferral()" class="neon-btn">ADD REFERRAL (TEST)</button>
+                <button onclick="copyRefCode()" class="neon-btn">COPY REFERRAL LINK</button>
+                <div class="share-buttons">
+                    <button onclick="shareOnX()" class="share-btn">Share on X</button>
+                    <button onclick="shareOnWhatsApp()" class="share-btn">Share on WhatsApp</button>
+                    <button onclick="shareOnFacebook()" class="share-btn">Share on Facebook</button>
+                    <button onclick="shareOnTelegram()" class="share-btn">Share on Telegram</button>
+                </div>
+                <button onclick="redeemPoints()" class="neon-btn">REDEEM POINTS</button>
+                <button onclick="logout()" class="neon-btn">EXIT GRID</button>
+
+                <div class="leaderboard-box">
+                    <h3 class="neon-header">LEADERBOARD</h3>
+                    <table id="leaderboard" class="neon-table"></table>
+                </div>
+            </div>
         </div>
 
-        <div id="dashboard" class="neon-card" style="display: none;">
-            <h2 class="neon-header">WELCOME BACK!</h2>
-            <p class="neon-text">Welcome aboard, <span id="user-name"></span>! Invite friends to earn more tokens and climb the leaderboard!</p>
-            <p class="neon-text">Level: <span id="user-level" class="level-text"></span></p>
-            <p class="neon-text">Referrals: <span id="ref-count"></span></p>
-            <p class="neon-text">Points: <span id="points"></span></p>
-            <progress id="progress-bar" value="0" max="2" class="neon-progress"></progress>
-            <p class="neon-text">Next level at <span id="next-level-refs"></span> referrals!</p>
-            <button onclick="updateReferral()" class="neon-btn">ADD REFERRAL (TEST)</button>
-            <button onclick="copyRefCode()" class="neon-btn">COPY REFERRAL LINK</button>
-            <div class="share-buttons">
-                <button onclick="shareOnX()" class="share-btn">Share on X</button>
-                <button onclick="shareOnWhatsApp()" class="share-btn">Share on WhatsApp</button>
-                <button onclick="shareOnFacebook()" class="share-btn">Share on Facebook</button>
-                <button onclick="shareOnTelegram()" class="share-btn">Share on Telegram</button>
+        <!-- Tasks Section -->
+        <div id="tasks-section" class="section" style="display: none;">
+            <div class="neon-card">
+                <h2 class="neon-header">TASKS</h2>
+                <p class="neon-text">Complete tasks to earn bonus points!</p>
+                <ul class="task-list">
+                    <li class="task-item">Follow @BlondieToken on X and get 500 points
+                        <button onclick="completeTask('followX')" class="neon-btn task-btn">Claim</button>
+                    </li>
+                    <!-- Lisää lisää tehtäviä tarpeen mukaan -->
+                </ul>
             </div>
-            <button onclick="redeemPoints()" class="neon-btn">REDEEM POINTS</button>
-            <button onclick="logout()" class="neon-btn">EXIT GRID</button>
+        </div>
 
-            <div class="leaderboard-box">
-                <h3 class="neon-header">LEADERBOARD</h3>
-                <table id="leaderboard" class="neon-table"></table>
+        <!-- Miner Section -->
+        <div id="miner-section" class="section" style="display: none;">
+            <div class="neon-card">
+                <h2 class="neon-header">MINER</h2>
+                <p class="neon-text">Mining feature coming soon!</p>
+            </div>
+        </div>
+
+        <!-- Wallet Section -->
+        <div id="wallet-section" class="section" style="display: none;">
+            <div class="neon-card">
+                <h2 class="neon-header">WALLET</h2>
+                <p class="neon-text">Points: <span id="wallet-points"></span></p>
+                <p class="neon-text">Referred Users: <span id="wallet-referrals"></span></p>
+                <p class="neon-text">Mined Tokens: <span id="wallet-mined"></span> (Coming Soon)</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about-section" class="section" style="display: none;">
+            <div class="neon-card">
+                <h2 class="neon-header">ABOUT</h2>
+                <p class="neon-text">Welcome to BlondieToken Referral Contest! Your goal is to invite friends, complete tasks, and mine tokens to earn points and climb the leaderboard. Win €10,000!</p>
+                <p class="neon-text"><strong>Instructions:</strong></p>
+                <ul class="task-list">
+                    <li>Register and log in to start.</li>
+                    <li>Share your referral link to earn points.</li>
+                    <li>Complete tasks for bonus points.</li>
+                    <li>Mine tokens (feature coming soon).</li>
+                    <li>Check your wallet for progress.</li>
+                </ul>
             </div>
         </div>
     </div>
+
+    <!-- Ohjauspaneeli (footer) -->
+    <footer class="control-panel">
+        <button onclick="showSection('home-section')" class="control-btn">Home</button>
+        <button onclick="showSection('tasks-section')" class="control-btn">Tasks</button>
+        <button onclick="showSection('miner-section')" class="control-btn">Miner</button>
+        <button onclick="showSection('wallet-section')" class="control-btn">Wallet</button>
+        <button onclick="showSection('about-section')" class="control-btn">About</button>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

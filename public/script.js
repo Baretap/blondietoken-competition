@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
         dashboardSection.style.display = 'block';
         logoutLink.style.display = 'block';
         populateDashboard();
+        showSection('home-section');
     } else {
         authSection.style.display = 'block';
         dashboardSection.style.display = 'none';
         logoutLink.style.display = 'none';
+        showSection('home-section');
     }
 
     const menuIcon = document.querySelector('.menu-icon');
@@ -22,6 +24,26 @@ document.addEventListener('DOMContentLoaded', () => {
         navOptions.style.display = navOptions.style.display === 'flex' ? 'none' : 'flex';
     });
 });
+
+// Näytä valittu osio
+function showSection(sectionId) {
+    const sections = document.getElementsByClassName('section');
+    for (let section of sections) {
+        section.style.display = 'none';
+    }
+    document.getElementById(sectionId).style.display = 'block';
+    if (sectionId === 'home-section' && localStorage.getItem('isLoggedIn') === 'true') {
+        document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('auth').style.display = 'none';
+        populateDashboard();
+    } else if (sectionId === 'home-section' && localStorage.getItem('isLoggedIn') !== 'true') {
+        document.getElementById('auth').style.display = 'block';
+        document.getElementById('dashboard').style.display = 'none';
+    }
+    if (sectionId === 'wallet-section' && localStorage.getItem('isLoggedIn') === 'true') {
+        updateWallet();
+    }
+}
 
 // Rekisteröityminen
 function register() {
@@ -52,6 +74,7 @@ function register() {
     document.getElementById('logout-link').style.display = 'block';
 
     populateDashboard();
+    showSection('home-section');
 }
 
 // Kirjautuminen
@@ -78,6 +101,7 @@ function login() {
     document.getElementById('logout-link').style.display = 'block';
 
     populateDashboard();
+    showSection('home-section');
 }
 
 // Uloskirjautuminen
@@ -93,6 +117,7 @@ function logout() {
     document.getElementById('reg-password').value = '';
     document.getElementById('login-email').value = '';
     document.getElementById('login-password').value = '';
+    showSection('home-section');
 }
 
 // Laske kumulatiiviset tason vaatimukset
@@ -190,6 +215,9 @@ function updateReferral() {
 
     localStorage.setItem('user', JSON.stringify(user));
     populateDashboard();
+    if (document.getElementById('wallet-section').style.display === 'block') {
+        updateWallet();
+    }
 }
 
 // Lunasta pisteitä (mock-toiminto)
@@ -207,6 +235,41 @@ function redeemPoints() {
         alert('Redeemed 50 points for a bonus entry! Remaining points: ' + user.points);
     } else {
         alert('You need at least 50 points to redeem!');
+    }
+    if (document.getElementById('wallet-section').style.display === 'block') {
+        updateWallet();
+    }
+}
+
+// Päivitä Wallet-sivun tiedot
+function updateWallet() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        document.getElementById('wallet-points').textContent = user.points;
+        document.getElementById('wallet-referrals').textContent = user.refCount;
+        document.getElementById('wallet-mined').textContent = '0'; // Tulee myöhemmin
+    }
+}
+
+// Suorita tehtävä
+function completeTask(taskId) {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+        alert('Please log in to complete tasks.');
+        return;
+    }
+
+    if (taskId === 'followX' && !localStorage.getItem('task_followX_completed')) {
+        user.points += 500;
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('task_followX_completed', 'true');
+        alert('You earned 500 points for following @BlondieToken on X!');
+        populateDashboard();
+        if (document.getElementById('wallet-section').style.display === 'block') {
+            updateWallet();
+        }
+    } else {
+        alert('Task already completed or invalid task!');
     }
 }
 
