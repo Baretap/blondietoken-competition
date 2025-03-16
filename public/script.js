@@ -95,8 +95,17 @@ function logout() {
     document.getElementById('login-password').value = '';
 }
 
-// Laske tason vaatimukset (progressiivisesti vaikeutuva)
-function getLevelRequirements(level) {
+// Laske kumulatiiviset tason vaatimukset
+function getCumulativeLevelRequirements(level) {
+    let total = 0;
+    for (let i = 1; i < level; i++) {
+        total += 5 + (i - 1) * 3; // Lasketaan kunkin tason vaatimus ja summataan
+    }
+    return total;
+}
+
+// Laske yksittäisen tason vaatimus (käytetään progress barin max-arvon laskemiseen)
+function getSingleLevelRequirement(level) {
     return 5 + (level - 1) * 3; // Taso 1: 5, Taso 2: 8, Taso 3: 11, Taso 4: 14 jne.
 }
 
@@ -113,7 +122,7 @@ function populateDashboard() {
     // Päivitetään taso viitteiden perusteella
     let currentLevel = user.level;
     let totalReferrals = user.refCount;
-    let nextLevelRefs = getLevelRequirements(currentLevel);
+    let nextLevelRefs = getCumulativeLevelRequirements(currentLevel + 1); // Seuraavan tason kumulatiiviset vaatimukset
     let leveledUp = false;
 
     // Tarkistetaan vain yksi tason nousu kerrallaan
@@ -122,7 +131,7 @@ function populateDashboard() {
         user.level = currentLevel;
         user.points += currentLevel * 100; // Bonus: taso * 100 pistettä
         alert(`Congratulations! You reached Level ${currentLevel} and earned ${currentLevel * 100} bonus points!`);
-        nextLevelRefs = getLevelRequirements(currentLevel);
+        nextLevelRefs = getCumulativeLevelRequirements(currentLevel + 1);
         leveledUp = true;
     }
 
@@ -139,10 +148,10 @@ function populateDashboard() {
     document.getElementById('points').textContent = user.points;
 
     // Progress bar
-    const refsForCurrentLevel = getLevelRequirements(user.level - 1) || 0;
-    const refsForNextLevel = getLevelRequirements(user.level);
-    const progress = Math.min(totalReferrals - refsForCurrentLevel, refsForNextLevel - refsForCurrentLevel); // Varmistetaan, että progress ei ylitä max-arvoa
-    const maxProgress = refsForNextLevel - refsForCurrentLevel;
+    const refsForCurrentLevel = getCumulativeLevelRequirements(user.level); // Nykyisen tason kumulatiiviset vaatimukset
+    const refsForNextLevel = getCumulativeLevelRequirements(user.level + 1); // Seuraavan tason kumulatiiviset vaatimukset
+    const progress = totalReferrals - refsForCurrentLevel; // Edistyminen nykyisellä tasolla
+    const maxProgress = getSingleLevelRequirement(user.level); // Nykyisen tason yksittäinen vaatimus
     const progressBar = document.getElementById('progress-bar');
     progressBar.max = maxProgress;
     progressBar.value = progress;
