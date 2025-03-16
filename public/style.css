@@ -28,12 +28,12 @@ body {
     align-items: center;
     padding: 15px;
     background: #000000; /* Musta tausta */
-    border: none; /* Poistettu neon-vaaleanpunainen reuna */
+    border: none; /* Ei reunuksia */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-    box-shadow: none; /* Poistettu hehku */
+    box-shadow: 0 0 15px #FF0000; /* Punainen hehku reunoilla */
     box-sizing: border-box;
     left: 0;
 }
@@ -81,8 +81,8 @@ body {
 
 /* Otsikot */
 .neon-title {
-    color: #4B0082; /* Tumma lila */
-    text-shadow: 0 0 15px #FF69B4, 0 0 30px #FF69B4; /* Vaaleanpunainen hehku */
+    color: #FFFFFF; /* Valkoinen */
+    text-shadow: 0 0 15px #FF0000, 0 0 30px #FF0000; /* Punainen hehku */
     font-size: 2em;
     font-weight: 700; /* Paksu */
     text-align: center;
@@ -93,8 +93,8 @@ body {
 }
 
 .neon-subtitle {
-    color: #00FFFF; /* Neon sininen */
-    text-shadow: 0 0 15px #00FFFF, 0 0 30px #FF0000; /* Neon sininen ja punainen hehku */
+    color: #FFFFFF; /* Valkoinen */
+    text-shadow: 0 0 15px #00FFFF, 0 0 30px #00FFFF; /* Neon sininen hehku */
     font-size: 2em;
     font-weight: 700;
     text-align: center;
@@ -113,7 +113,7 @@ body {
 /* Kortit */
 .neon-card {
     background: #000000; /* Musta tausta */
-    border: none; /* Poistettu punainen kehys */
+    border: none;
     border-radius: 20px;
     padding: 25px;
     margin-bottom: 20px;
@@ -122,8 +122,8 @@ body {
 
 /* Väliotsikot */
 .neon-header {
-    color: #00FFFF; /* Neon sininen */
-    text-shadow: 0 0 15px #00FFFF, 0 0 30px #FF0000; /* Neon sininen ja punainen hehku */
+    color: #FFFFFF; /* Valkoinen */
+    text-shadow: 0 0 15px #00FFFF, 0 0 30px #00FFFF; /* Neon sininen hehku */
     font-size: 1.8em;
     font-weight: 700;
     text-align: center;
