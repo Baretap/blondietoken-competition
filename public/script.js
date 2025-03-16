@@ -116,7 +116,8 @@ function populateDashboard() {
     let nextLevelRefs = getLevelRequirements(currentLevel);
     let leveledUp = false;
 
-    while (totalReferrals >= nextLevelRefs) {
+    // Tarkistetaan vain yksi tason nousu kerrallaan
+    if (totalReferrals >= nextLevelRefs) {
         currentLevel++;
         user.level = currentLevel;
         user.points += currentLevel * 100; // Bonus: taso * 100 pistettä
@@ -134,14 +135,13 @@ function populateDashboard() {
     if (leveledUp) {
         levelText.classList.add('level-up'); // Tasonousuanimaatio
     }
-    document.getElementById('ref-code').textContent = user.refCode;
     document.getElementById('ref-count').textContent = user.refCount;
     document.getElementById('points').textContent = user.points;
 
     // Progress bar
     const refsForCurrentLevel = getLevelRequirements(user.level - 1) || 0;
     const refsForNextLevel = getLevelRequirements(user.level);
-    const progress = user.refCount - refsForCurrentLevel;
+    const progress = Math.min(totalReferrals - refsForCurrentLevel, refsForNextLevel - refsForCurrentLevel); // Varmistetaan, että progress ei ylitä max-arvoa
     const maxProgress = refsForNextLevel - refsForCurrentLevel;
     const progressBar = document.getElementById('progress-bar');
     progressBar.max = maxProgress;
