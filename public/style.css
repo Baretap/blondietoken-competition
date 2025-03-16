@@ -21,24 +21,62 @@ body {
     animation: glowFade 6s ease infinite;
 }
 
-/* Kontaineri */
-.container {
-    padding: 40px 20px;
-    max-width: 700px;
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
+/* Header */
+.neon-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(75, 0, 130, 0.8); /* Tumma lila */
+    border-bottom: 2px solid #FF0000; /* Punainen */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 0 15px #FF69B4; /* Vaaleanpunainen hehku */
+}
+
+.menu-icon {
+    font-size: 1.5em;
+    color: #FF69B4; /* Vaaleanpunainen */
+    cursor: pointer;
+    text-shadow: 0 0 10px #FF0000; /* Punainen hehku */
+}
+
+.nav-options {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9); /* Musta */
+    border: 2px solid #FF0000; /* Punainen */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px #FF69B4; /* Vaaleanpunainen hehku */
+}
+
+.nav-link {
+    color: #FFFFFF; /* Valkoinen */
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px #FF0000; /* Punainen hehku */
+}
+
+.nav-link:hover {
+    color: #FF69B4; /* Vaaleanpunainen */
 }
 
 /* Otsikot */
 .neon-title {
-    color: #FF69B4; /* Vaaleanpunainen */
+    color: #FFFFFF; /* Valkoinen */
     text-shadow: 0 0 10px #FF69B4, 0 0 20px #FF0000; /* Vaaleanpunainen ja punainen hehku */
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin: 0;
     animation: neonFlicker 3s ease infinite;
 }
 
@@ -47,12 +85,12 @@ body {
     text-shadow: 0 0 8px #FF0000;
     font-size: 1.3em;
     text-align: center;
-    margin-bottom: 40px;
+    margin: 70px 0 40px; /* Lisätty marginaali headerin vuoksi */
 }
 
 /* Kortit */
 .neon-card {
-    background: #000000; /* Musta tausta, kuten kuvassa */
+    background: #000000; /* Musta tausta */
     border: 2px solid #FF0000; /* Punainen */
     border-radius: 20px;
     padding: 30px;
@@ -62,7 +100,7 @@ body {
 
 /* Väliotsikot */
 .neon-header {
-    color: #FF69B4; /* Vaaleanpunainen */
+    color: #FFFFFF; /* Valkoinen */
     text-shadow: 0 0 10px #FF0000; /* Punainen hehku */
     font-size: 2em;
     text-align: center;
@@ -110,7 +148,7 @@ body {
     background: linear-gradient(90deg, #FF69B4, #4B0082); /* Vaaleanpunainen -> Tumma lila */
     border: 2px solid #FF0000; /* Punainen */
     border-radius: 15px;
-    color: #000000; /* Musta */
+    color: #FFFFFF; /* Valkoinen */
     font-weight: bold;
     font-size: 1.2em;
     text-align: center;
@@ -157,7 +195,7 @@ body {
 /* Responsiivisuus */
 @media (max-width: 600px) {
     .neon-title {
-        font-size: 2.2em;
+        font-size: 1.8em;
     }
     .neon-subtitle {
         font-size: 1.1em;
@@ -180,6 +218,12 @@ body {
     .neon-table th, .neon-table td {
         padding: 8px;
         font-size: 0.9em;
+    }
+    .neon-header-bar {
+        padding: 10px;
+    }
+    .menu-icon {
+        font-size: 1.2em;
     }
 }
 
