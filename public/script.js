@@ -95,9 +95,9 @@ function logout() {
     document.getElementById('login-password').value = '';
 }
 
-// Laske tason vaatimukset (hitaampi tempo)
+// Laske tason vaatimukset (progressiivisesti vaikeutuva)
 function getLevelRequirements(level) {
-    return level * 5; // Taso 1: 5 viitettä, Taso 2: 10 viitettä, Taso 3: 15 viitettä jne.
+    return 5 + (level - 1) * 3; // Taso 1: 5, Taso 2: 8, Taso 3: 11, Taso 4: 14 jne.
 }
 
 // Täytetään dashboardin tiedot
