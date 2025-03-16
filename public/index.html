@@ -18,7 +18,8 @@
         </div>
     </header>
     <div class="container">
-        <p class="neon-subtitle">Join the ultimate referral contest and win €10,000!</p>
+        <p class="neon-subtitle">JOIN THE ULTIMATE REFERRAL CONTEST</p>
+        <p class="neon-subtext">and win €10,000!</p>
 
         <div id="auth" class="neon-card">
             <h2 class="neon-header">REGISTER NOW</h2>
@@ -48,14 +49,14 @@
     </div>
     <script src="script.js"></script>
     <script>
-        // Hamburger-valikon toiminnallisuus (perustaso)
+        // Hamburger-valikon toiminnallisuus
         const menuIcon = document.querySelector('.menu-icon');
         const navOptions = document.querySelector('.nav-options');
         menuIcon.addEventListener('click', () => {
             navOptions.style.display = navOptions.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Esimerkkitoiminto uloskirjautumiselle (täydennä tarpeen mukaan)
+        // Esimerkkitoiminto uloskirjautumiselle
         function logout() {
             document.getElementById('dashboard').style.display = 'none';
             document.getElementById('auth').style.display = 'block';
