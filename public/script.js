@@ -103,46 +103,52 @@ function getLevelRequirements(level) {
 // Täytetään dashboardin tiedot
 function populateDashboard() {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-        // Päivitetään taso viitteiden perusteella
-        let currentLevel = user.level;
-        let totalReferrals = user.refCount;
-        let nextLevelRefs = getLevelRequirements(currentLevel);
-        let leveledUp = false;
-
-        while (totalReferrals >= nextLevelRefs) {
-            currentLevel++;
-            user.level = currentLevel;
-            user.points += currentLevel * 100; // Bonus: taso * 100 pistettä
-            alert(`Congratulations! You reached Level ${currentLevel} and earned ${currentLevel * 100} bonus points!`);
-            nextLevelRefs = getLevelRequirements(currentLevel);
-            leveledUp = true;
-        }
-
-        localStorage.setItem('user', JSON.stringify(user));
-
-        // Päivitä UI
-        document.getElementById('user-name').textContent = user.name;
-        const levelText = document.getElementById('user-level');
-        levelText.textContent = user.level;
-        if (leveledUp) {
-            levelText.classList.add('level-up'); // Tasonousuanimaatio
-        }
-        document.getElementById('ref-code').textContent = user.refCode;
-        document.getElementById('ref-count').textContent = user.refCount;
-        document.getElementById('points').textContent = user.points;
-
-        // Progress bar
-        const refsForCurrentLevel = getLevelRequirements(user.level - 1) || 0;
-        const refsForNextLevel = getLevelRequirements(user.level);
-        const progress = user.refCount - refsForCurrentLevel;
-        const maxProgress = refsForNextLevel - refsForCurrentLevel;
-        const progressBar = document.getElementById('progress-bar');
-        progressBar.value = progress;
-        progressBar.max = maxProgress;
-        document.getElementById('next-level-refs').textContent = refsForNextLevel;
+    if (!user) {
+        console.error('User not found in localStorage');
+        return;
     }
 
+    console.log('Populating dashboard for user:', user);
+
+    // Päivitetään taso viitteiden perusteella
+    let currentLevel = user.level;
+    let totalReferrals = user.refCount;
+    let nextLevelRefs = getLevelRequirements(currentLevel);
+    let leveledUp = false;
+
+    while (totalReferrals >= nextLevelRefs) {
+        currentLevel++;
+        user.level = currentLevel;
+        user.points += currentLevel * 100; // Bonus: taso * 100 pistettä
+        alert(`Congratulations! You reached Level ${currentLevel} and earned ${currentLevel * 100} bonus points!`);
+        nextLevelRefs = getLevelRequirements(currentLevel);
+        leveledUp = true;
+    }
+
+    localStorage.setItem('user', JSON.stringify(user));
+
+    // Päivitä UI
+    document.getElementById('user-name').textContent = user.name;
+    const levelText = document.getElementById('user-level');
+    levelText.textContent = user.level;
+    if (leveledUp) {
+        levelText.classList.add('level-up'); // Tasonousuanimaatio
+    }
+    document.getElementById('ref-code').textContent = user.refCode;
+    document.getElementById('ref-count').textContent = user.refCount;
+    document.getElementById('points').textContent = user.points;
+
+    // Progress bar
+    const refsForCurrentLevel = getLevelRequirements(user.level - 1) || 0;
+    const refsForNextLevel = getLevelRequirements(user.level);
+    const progress = user.refCount - refsForCurrentLevel;
+    const maxProgress = refsForNextLevel - refsForCurrentLevel;
+    const progressBar = document.getElementById('progress-bar');
+    progressBar.value = progress;
+    progressBar.max = maxProgress;
+    document.getElementById('next-level-refs').textContent = refsForNextLevel;
+
+    // Päivitä leaderboard
     const leaderboard = document.getElementById('leaderboard');
     leaderboard.innerHTML = `
         <tr>
@@ -160,16 +166,30 @@ function populateDashboard() {
 
 // Päivitetään viitteitä ja pisteitä (mock-logiikka)
 function updateReferral() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    console.log('updateReferral called');
+    let user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+        console.error('User not found in localStorage');
+        alert('Error: User not found. Please log in again.');
+        return;
+    }
+
     user.refCount += 1; // Lisätään viite
-    user.points += 20; // 20 pistettä/viite (nopeatempoisempi palkinto)
+    user.points += 20; // 20 pistettä/viite
+    console.log('Updated user:', user);
+
     localStorage.setItem('user', JSON.stringify(user));
     populateDashboard();
 }
 
 // Lunasta pisteitä (mock-toiminto)
 function redeemPoints() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+        console.error('User not found in localStorage');
+        return;
+    }
+
     if (user.points >= 50) {
         user.points -= 50;
         localStorage.setItem('user', JSON.stringify(user));
