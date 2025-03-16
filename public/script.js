@@ -40,7 +40,8 @@ function register() {
         password: password,
         refCode: Math.random().toString(36).substring(2, 8).toUpperCase(),
         refCount: 0,
-        points: 0
+        points: 0,
+        level: 1 // Aloitetaan tasolta 1
     };
 
     localStorage.setItem('user', JSON.stringify(user));
@@ -94,14 +95,52 @@ function logout() {
     document.getElementById('login-password').value = '';
 }
 
+// Laske tason vaatimukset (nopeampi tempo)
+function getLevelRequirements(level) {
+    return level * 2; // Taso 1: 2 viitettä, Taso 2: 4 viitettä, Taso 3: 6 viitettä jne.
+}
+
 // Täytetään dashboardin tiedot
 function populateDashboard() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
+        // Päivitetään taso viitteiden perusteella
+        let currentLevel = user.level;
+        let totalReferrals = user.refCount;
+        let nextLevelRefs = getLevelRequirements(currentLevel);
+        let leveledUp = false;
+
+        while (totalReferrals >= nextLevelRefs) {
+            currentLevel++;
+            user.level = currentLevel;
+            user.points += currentLevel * 100; // Bonus: taso * 100 pistettä
+            alert(`Congratulations! You reached Level ${currentLevel} and earned ${currentLevel * 100} bonus points!`);
+            nextLevelRefs = getLevelRequirements(currentLevel);
+            leveledUp = true;
+        }
+
+        localStorage.setItem('user', JSON.stringify(user));
+
+        // Päivitä UI
         document.getElementById('user-name').textContent = user.name;
+        const levelText = document.getElementById('user-level');
+        levelText.textContent = user.level;
+        if (leveledUp) {
+            levelText.classList.add('level-up'); // Tasonousuanimaatio
+        }
         document.getElementById('ref-code').textContent = user.refCode;
         document.getElementById('ref-count').textContent = user.refCount;
         document.getElementById('points').textContent = user.points;
+
+        // Progress bar
+        const refsForCurrentLevel = getLevelRequirements(user.level - 1) || 0;
+        const refsForNextLevel = getLevelRequirements(user.level);
+        const progress = user.refCount - refsForCurrentLevel;
+        const maxProgress = refsForNextLevel - refsForCurrentLevel;
+        const progressBar = document.getElementById('progress-bar');
+        progressBar.value = progress;
+        progressBar.max = maxProgress;
+        document.getElementById('next-level-refs').textContent = refsForNextLevel;
     }
 
     const leaderboard = document.getElementById('leaderboard');
@@ -117,6 +156,28 @@ function populateDashboard() {
             <td>${user.points}</td>
         </tr>
     `;
+}
+
+// Päivitetään viitteitä ja pisteitä (mock-logiikka)
+function updateReferral() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    user.refCount += 1; // Lisätään viite
+    user.points += 20; // 20 pistettä/viite (nopeatempoisempi palkinto)
+    localStorage.setItem('user', JSON.stringify(user));
+    populateDashboard();
+}
+
+// Lunasta pisteitä (mock-toiminto)
+function redeemPoints() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user.points >= 50) {
+        user.points -= 50;
+        localStorage.setItem('user', JSON.stringify(user));
+        populateDashboard();
+        alert('Redeemed 50 points for a bonus entry! Remaining points: ' + user.points);
+    } else {
+        alert('You need at least 50 points to redeem!');
+    }
 }
 
 // Kopioi koko referral-linkki

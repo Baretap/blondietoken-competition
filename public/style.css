@@ -141,6 +141,23 @@ body {
     margin: 10px 0;
 }
 
+/* Tasonumeron välähdys */
+.level-text {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.level-text.level-up {
+    color: #FF69B4; /* Vaaleanpunainen */
+    text-shadow: 0 0 15px #FF0000, 0 0 30px #FF0000; /* Punainen hehku */
+    animation: levelUp 1s ease;
+}
+
+@keyframes levelUp {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+}
+
 /* Syöttökentät */
 .neon-input {
     display: block;
@@ -214,6 +231,34 @@ body {
 .share-btn:hover {
     background: linear-gradient(90deg, #FF0000, #FF69B4); /* Punainen -> Vaaleanpunainen */
     box-shadow: 0 0 15px #FF0000;
+}
+
+/* Progress Bar */
+.neon-progress {
+    width: 100%;
+    height: 20px;
+    margin: 15px 0;
+    background: rgba(75, 0, 130, 0.5); /* Tumma lila, läpinäkyvä */
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.neon-progress::-webkit-progress-bar {
+    background: rgba(75, 0, 130, 0.5);
+    border-radius: 10px;
+}
+
+.neon-progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #FF69B4, #4B0082);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #FF69B4;
+}
+
+.neon-progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #FF69B4, #4B0082);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #FF69B4;
 }
 
 /* Leaderboard-laatikko */
@@ -306,6 +351,9 @@ body {
     }
     .share-btn {
         margin: 5px 0;
+    }
+    .neon-progress {
+        height: 15px;
     }
 }
 

@@ -36,16 +36,20 @@
         <div id="dashboard" class="neon-card" style="display: none;">
             <h2 class="neon-header">WELCOME BACK!</h2>
             <p class="neon-text">Welcome aboard, <span id="user-name"></span>! Invite friends to earn more tokens and climb the leaderboard!</p>
-            <p class="neon-text">Code: <span id="ref-code"></span></p>
-            <p class="neon-text">Allies: <span id="ref-count"></span></p>
-            <p class="neon-text">Energy: <span id="points"></span></p>
-            <button onclick="copyRefCode()" class="neon-btn">COPY REFERRAL LINK</button> <!-- Muutettu teksti selkeyden vuoksi -->
+            <p class="neon-text">Level: <span id="user-level" class="level-text"></span></p>
+            <p class="neon-text">Referrals: <span id="ref-count"></span></p>
+            <p class="neon-text">Points: <span id="points"></span></p>
+            <progress id="progress-bar" value="0" max="2" class="neon-progress"></progress>
+            <p class="neon-text">Next level at <span id="next-level-refs"></span> referrals!</p>
+            <button onclick="updateReferral()" class="neon-btn">ADD REFERRAL (TEST)</button>
+            <button onclick="copyRefCode()" class="neon-btn">COPY REFERRAL LINK</button>
             <div class="share-buttons">
                 <button onclick="shareOnX()" class="share-btn">Share on X</button>
                 <button onclick="shareOnWhatsApp()" class="share-btn">Share on WhatsApp</button>
                 <button onclick="shareOnFacebook()" class="share-btn">Share on Facebook</button>
                 <button onclick="shareOnTelegram()" class="share-btn">Share on Telegram</button>
             </div>
+            <button onclick="redeemPoints()" class="neon-btn">REDEEM POINTS</button>
             <button onclick="logout()" class="neon-btn">EXIT GRID</button>
 
             <div class="leaderboard-box">
