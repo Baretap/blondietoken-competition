@@ -95,9 +95,9 @@ function logout() {
     document.getElementById('login-password').value = '';
 }
 
-// Laske tason vaatimukset (nopeampi tempo)
+// Laske tason vaatimukset (hitaampi tempo)
 function getLevelRequirements(level) {
-    return level * 2; // Taso 1: 2 viitettä, Taso 2: 4 viitettä, Taso 3: 6 viitettä jne.
+    return level * 5; // Taso 1: 5 viitettä, Taso 2: 10 viitettä, Taso 3: 15 viitettä jne.
 }
 
 // Täytetään dashboardin tiedot
@@ -144,8 +144,9 @@ function populateDashboard() {
     const progress = user.refCount - refsForCurrentLevel;
     const maxProgress = refsForNextLevel - refsForCurrentLevel;
     const progressBar = document.getElementById('progress-bar');
-    progressBar.value = progress;
     progressBar.max = maxProgress;
+    progressBar.value = progress;
+    console.log(`Progress: ${progress}/${maxProgress}, refs: ${user.refCount}, currentLevel: ${user.level}, refsForCurrentLevel: ${refsForCurrentLevel}, refsForNextLevel: ${refsForNextLevel}`);
     document.getElementById('next-level-refs').textContent = refsForNextLevel;
 
     // Päivitä leaderboard

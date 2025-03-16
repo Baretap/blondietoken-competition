@@ -233,32 +233,58 @@ body {
     box-shadow: 0 0 15px #FF0000;
 }
 
-/* Progress Bar */
+/* Progress Bar: Nestemäinen kulta lasiputkessa */
 .neon-progress {
     width: 100%;
-    height: 20px;
+    height: 25px;
     margin: 15px 0;
-    background: rgba(75, 0, 130, 0.5); /* Tumma lila, läpinäkyvä */
-    border: none;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Läpinäkyvä lasi */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Lasin reunat */
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.2); /* Lasin heijastus */
+    position: relative;
 }
 
 .neon-progress::-webkit-progress-bar {
-    background: rgba(75, 0, 130, 0.5);
-    border-radius: 10px;
+    background: transparent; /* Lasiputken tausta */
 }
 
 .neon-progress::-webkit-progress-value {
-    background: linear-gradient(90deg, #FF69B4, #4B0082);
-    border-radius: 10px;
-    box-shadow: 0 0 10px #FF69B4;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700); /* Nestemäinen kulta: keltainen-oranssi gradient */
+    border-radius: 15px;
+    animation: liquidFlow 3s ease-in-out infinite; /* Aaltoileva liike */
+    box-shadow: 0 0 10px #FFD700, inset 0 0 5px #FFA500; /* Kullan hehku */
 }
 
 .neon-progress::-moz-progress-bar {
-    background: linear-gradient(90deg, #FF69B4, #4B0082);
-    border-radius: 10px;
-    box-shadow: 0 0 10px #FF69B4;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700); /* Nestemäinen kulta */
+    border-radius: 15px;
+    animation: liquidFlow 3s ease-in-out infinite;
+    box-shadow: 0 0 10px #FFD700, inset 0 0 5px #FFA500;
+}
+
+/* Aaltoileva nestemäinen animaatio */
+@keyframes liquidFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Lasiputken heijastusefekti */
+.neon-progress::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 15px;
+    pointer-events: none;
 }
 
 /* Leaderboard-laatikko */
@@ -353,7 +379,7 @@ body {
         margin: 5px 0;
     }
     .neon-progress {
-        height: 15px;
+        height: 20px;
     }
 }
 
