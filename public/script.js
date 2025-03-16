@@ -5,19 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const dashboardSection = document.getElementById('dashboard');
     const logoutLink = document.getElementById('logout-link');
 
-    // Näytetään oikea näkymä sivun latautuessa
     if (isLoggedIn) {
         authSection.style.display = 'none';
         dashboardSection.style.display = 'block';
-        logoutLink.style.display = 'block'; // Näytetään uloskirjautuminen vain kirjautuneille
+        logoutLink.style.display = 'block';
         populateDashboard();
     } else {
         authSection.style.display = 'block';
         dashboardSection.style.display = 'none';
-        logoutLink.style.display = 'none'; // Piilotetaan uloskirjautuminen, jos ei ole kirjautunut
+        logoutLink.style.display = 'none';
     }
 
-    // Hamburger-valikon toiminnallisuus
     const menuIcon = document.querySelector('.menu-icon');
     const navOptions = document.querySelector('.nav-options');
     menuIcon.addEventListener('click', () => {
@@ -36,7 +34,6 @@ function register() {
         return;
     }
 
-    // Tallennetaan käyttäjän tiedot localStorageen
     const user = {
         name: name,
         email: email,
@@ -49,7 +46,6 @@ function register() {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('isLoggedIn', 'true');
 
-    // Vaihdetaan näkymä dashboardiin
     document.getElementById('auth').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     document.getElementById('logout-link').style.display = 'block';
@@ -76,7 +72,6 @@ function login() {
 
     localStorage.setItem('isLoggedIn', 'true');
 
-    // Vaihdetaan näkymä dashboardiin
     document.getElementById('auth').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     document.getElementById('logout-link').style.display = 'block';
@@ -88,12 +83,10 @@ function login() {
 function logout() {
     localStorage.setItem('isLoggedIn', 'false');
 
-    // Vaihdetaan näkymä takaisin kirjautumiseen
     document.getElementById('dashboard').style.display = 'none';
     document.getElementById('auth').style.display = 'block';
     document.getElementById('logout-link').style.display = 'none';
 
-    // Tyhjennetään lomakkeet
     document.getElementById('reg-name').value = '';
     document.getElementById('reg-email').value = '';
     document.getElementById('reg-password').value = '';
@@ -111,7 +104,6 @@ function populateDashboard() {
         document.getElementById('points').textContent = user.points;
     }
 
-    // Esimerkki leaderboard
     const leaderboard = document.getElementById('leaderboard');
     leaderboard.innerHTML = `
         <tr>
@@ -127,10 +119,44 @@ function populateDashboard() {
     `;
 }
 
-// Viitekoodin kopiointi (esimerkki)
+// Kopioi koko referral-linkki
 function copyRefCode() {
     const user = JSON.parse(localStorage.getItem('user'));
-    navigator.clipboard.writeText(user.refCode).then(() => {
-        alert('Referral code copied: ' + user.refCode);
+    const baseUrl = 'https://yourdomain.com/register'; // Korvaa oikealla Heroku-URL:lla
+    const referralLink = `${baseUrl}?ref=${user.refCode}`;
+    navigator.clipboard.writeText(referralLink).then(() => {
+        alert('Referral link copied: ' + referralLink);
     });
+}
+
+// Jako sosiaalisessa mediassa
+function shareOnX() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const baseUrl = 'https://yourdomain.com/register'; // Korvaa oikealla Heroku-URL:lla
+    const referralLink = `${baseUrl}?ref=${user.refCode}`;
+    const text = `Join the BlondieToken Referral Contest with my code! Win €10,000! ${referralLink}`;
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function shareOnWhatsApp() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const baseUrl = 'https://yourdomain.com/register'; // Korvaa oikealla Heroku-URL:lla
+    const referralLink = `${baseUrl}?ref=${user.refCode}`;
+    const text = `Join the BlondieToken Referral Contest with my code! Win €10,000! ${referralLink}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function shareOnFacebook() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const baseUrl = 'https://yourdomain.com/register'; // Korvaa oikealla Heroku-URL:lla
+    const referralLink = `${baseUrl}?ref=${user.refCode}`;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(referralLink)}`, '_blank');
+}
+
+function shareOnTelegram() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const baseUrl = 'https://yourdomain.com/register'; // Korvaa oikealla Heroku-URL:lla
+    const referralLink = `${baseUrl}?ref=${user.refCode}`;
+    const text = `Join the BlondieToken Referral Contest with my code! Win €10,000! ${referralLink}`;
+    window.open(`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent(text)}`, '_blank');
 }

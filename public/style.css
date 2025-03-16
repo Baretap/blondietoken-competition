@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: #000000; /* Musta pohja */
-    color: #C71585; /* Vaaleampi lila (aiemmin tumma lila #4B0082) */
+    color: #C71585; /* Vaaleampi lila */
     font-family: 'Orbitron', sans-serif;
     overflow-x: hidden;
     overflow-y: auto; /* Vieritys sallittu */
@@ -28,12 +28,12 @@ body {
     align-items: center;
     padding: 15px;
     background: #000000; /* Musta tausta */
-    border: none; /* Ei reunuksia */
+    border: none;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-    box-shadow: none; /* Ei hehkua reunoilla */
+    box-shadow: none;
     box-sizing: border-box;
     left: 0;
 }
@@ -103,7 +103,7 @@ body {
 }
 
 .neon-subtext {
-    color: #C71585; /* Vaaleampi lila (aiemmin tumma lila #4B0082) */
+    color: #C71585; /* Vaaleampi lila */
     text-shadow: 0 0 8px #FF69B4; /* Vaaleanpunainen hehku */
     font-size: 1.3em;
     text-align: center;
@@ -134,7 +134,7 @@ body {
 
 /* Tekstit */
 .neon-text {
-    color: #C71585; /* Vaaleampi lila (aiemmin tumma lila #4B0082) */
+    color: #C71585; /* Vaaleampi lila */
     text-shadow: 0 0 6px #FF69B4; /* Vaaleanpunainen hehku */
     font-size: 1.1em;
     text-align: center;
@@ -150,7 +150,7 @@ body {
     background: rgba(75, 0, 130, 0.3); /* Tumma lila, läpinäkyvä */
     border: 2px solid #FF69B4; /* Vaaleanpunainen */
     border-radius: 10px;
-    color: #C71585; /* Vaaleampi lila (aiemmin tumma lila #4B0082) */
+    color: #C71585; /* Vaaleampi lila */
     font-size: 1.1em;
     box-shadow: 0 0 10px #FF69B4;
     transition: all 0.3s ease;
@@ -187,6 +187,35 @@ body {
     box-shadow: 0 0 20px #FF0000;
 }
 
+/* Jakopainikkeet */
+.share-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.share-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    background: linear-gradient(90deg, #FF69B4, #4B0082); /* Vaaleanpunainen -> Tumma lila */
+    border: 2px solid #FF0000; /* Punainen */
+    border-radius: 10px;
+    color: #FFFFFF; /* Valkoinen */
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FF69B4;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background: linear-gradient(90deg, #FF0000, #FF69B4); /* Punainen -> Vaaleanpunainen */
+    box-shadow: 0 0 15px #FF0000;
+}
+
 /* Leaderboard-laatikko */
 .leaderboard-box {
     background: #000000; /* Musta tausta */
@@ -206,7 +235,7 @@ body {
 
 .neon-table th, .neon-table td {
     padding: 10px;
-    color: #C71585; /* Vaaleampi lila (aiemmin tumma lila #4B0082) */
+    color: #C71585; /* Vaaleampi lila */
     text-shadow: 0 0 6px #FF69B4; /* Vaaleanpunainen hehku */
     background: rgba(75, 0, 130, 0.7); /* Tumma lila */
     border: 1px solid #FF0000; /* Punainen */
@@ -271,6 +300,12 @@ body {
     .leaderboard-box {
         padding: 15px;
         margin-top: 20px;
+    }
+    .share-buttons {
+        flex-direction: column;
+    }
+    .share-btn {
+        margin: 5px 0;
     }
 }
 
