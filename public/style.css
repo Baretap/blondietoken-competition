@@ -26,14 +26,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
+    padding: 15px; /* Vähennetty padding vasemmalta ja oikealta */
     background: #000000; /* Musta tausta */
     border: 2px solid #FF69B4; /* Neon vaaleanpunainen header */
     position: fixed;
-    width: 100%;
+    width: 100%; /* Varmistetaan täysi leveys */
     top: 0;
     z-index: 100;
     box-shadow: 0 0 15px #FF69B4, 0 0 30px #FF0000; /* Vaaleanpunainen ja punainen hehku */
+    box-sizing: border-box; /* Sisällyttää paddingin leveyteen */
+    left: 0; /* Varmistetaan, että ei mene vasemmalta yli */
 }
 
 .menu-icon {
@@ -48,7 +50,7 @@ body {
     flex-direction: column;
     position: absolute;
     top: 100%;
-    right: 25px;
+    right: 15px; /* Vähennetty oikea marginaali */
     background: #000000; /* Musta tausta */
     border: 2px solid #FF69B4; /* Neon vaaleanpunainen */
     border-radius: 10px;
@@ -237,13 +239,13 @@ body {
         font-size: 0.9em;
     }
     .neon-header-bar {
-        padding: 10px 15px;
+        padding: 10px;
     }
     .menu-icon {
         font-size: 1.5em;
     }
     .nav-options {
-        right: 15px;
+        right: 10px;
         padding: 10px;
     }
 }
