@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background: #000000; /* Musta pohja */
-    color: #FF0000; /* Punainen teksti */
+    color: #4B0082; /* Tumma lila (aiemmin punainen) */
     font-family: 'Orbitron', sans-serif;
     overflow-x: hidden;
     overflow-y: auto; /* Vieritys sallittu */
@@ -33,7 +33,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 100;
-    box-shadow: 0 0 15px #FF0000; /* Punainen hehku reunoilla */
+    box-shadow: none; /* Poistettu punainen hehku reunoilta */
     box-sizing: border-box;
     left: 0;
 }
@@ -82,7 +82,7 @@ body {
 /* Otsikot */
 .neon-title {
     color: #FFFFFF; /* Valkoinen */
-    text-shadow: 0 0 15px #FF0000, 0 0 30px #FF0000; /* Punainen hehku */
+    text-shadow: 0 0 15px #FF0000, 0 0 30px #FF0000; /* Punainen neon-hehku */
     font-size: 2em;
     font-weight: 700; /* Paksu */
     text-align: center;
@@ -103,7 +103,7 @@ body {
 }
 
 .neon-subtext {
-    color: #FF0000; /* Punainen */
+    color: #4B0082; /* Tumma lila (aiemmin punainen) */
     text-shadow: 0 0 8px #FF69B4; /* Vaaleanpunainen hehku */
     font-size: 1.3em;
     text-align: center;
@@ -134,7 +134,7 @@ body {
 
 /* Tekstit */
 .neon-text {
-    color: #FF0000; /* Punainen */
+    color: #4B0082; /* Tumma lila (aiemmin punainen) */
     text-shadow: 0 0 6px #FF69B4; /* Vaaleanpunainen hehku */
     font-size: 1.1em;
     text-align: center;
@@ -150,7 +150,7 @@ body {
     background: rgba(75, 0, 130, 0.3); /* Tumma lila, läpinäkyvä */
     border: 2px solid #FF69B4; /* Vaaleanpunainen */
     border-radius: 10px;
-    color: #FF0000; /* Punainen */
+    color: #4B0082; /* Tumma lila (aiemmin punainen) */
     font-size: 1.1em;
     box-shadow: 0 0 10px #FF69B4;
     transition: all 0.3s ease;
@@ -206,7 +206,7 @@ body {
 
 .neon-table th, .neon-table td {
     padding: 10px;
-    color: #FF0000; /* Punainen */
+    color: #4B0082; /* Tumma lila (aiemmin punainen) */
     text-shadow: 0 0 6px #FF69B4; /* Vaaleanpunainen hehku */
     background: rgba(75, 0, 130, 0.7); /* Tumma lila */
     border: 1px solid #FF0000; /* Punainen */
